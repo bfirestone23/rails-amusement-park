@@ -22,10 +22,12 @@
         <td><%= attraction.nausea_rating %></td>
         <td><%= attraction.happiness_rating %></td>
         <td><%= attraction.min_height %></td>
-        <td><%= link_to "Go on #{attraction.name}", attraction %></td>
         <% if current_user.admin %>
+          <td><%= link_to "Show #{attraction.name}", attraction %></td>
           <td><%= link_to 'Edit', edit_attraction_path(attraction) %></td>
           <td><%= link_to 'Destroy', attraction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% else %>
+          <td><%= link_to "Go on #{attraction.name}", attraction %></td>
         <% end %>
       </tr>
     <% end %>
